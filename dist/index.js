@@ -91,9 +91,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core = __importStar(__webpack_require__(470));
 var audit_1 = __webpack_require__(589);
 try {
-    var audit = audit_1.getAudit({ json: true });
-    console.log(audit);
-    // core.setOutput('audit_table', audit);
+    var audit = audit_1.getAudit();
+    core.setOutput('audit_default', audit);
 }
 catch (error) {
     core.setFailed(error.message);
