@@ -8,8 +8,6 @@ nothing!
 
 ## Outputs
 
-### `audit_table`
+### `audit_default`
 
-Simple audit table.
-
-## Example usage
+It's default audit table.
