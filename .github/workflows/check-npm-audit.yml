@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  check_npm_audit:
+    runs-on: ubuntu-latest
+    name: A job to check audit and returns a result string
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: check audit
+      id: audit
+      uses: ./
+    - name: echo audit
+      run: echo "${{ steps.audit.outputs.audit_default }}"

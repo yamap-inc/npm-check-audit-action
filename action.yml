@@ -1,13 +1,8 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+name: Check npm audit
+description: audit information
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  audit_default: # id of output
+    description: audit default table
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: node12
+  main: dist/index.js
