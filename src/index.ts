@@ -24,7 +24,7 @@ const setMetaInfoWithMarkdown = async () => {
     try {
       auditJson = JSON.parse(auditJsonString || 'null');
     } catch (error) {
-      const message = `**Sooooooory**\nI can't read audit information. Please check audit in your machine.`;
+      const message = `**Sooooooorry**\nI can't read audit information. Please check audit in your machine.`;
       core.setOutput('meta_info_with_markdown', message);
       return;
     }

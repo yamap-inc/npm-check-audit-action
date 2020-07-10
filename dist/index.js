@@ -188,7 +188,7 @@ var setMetaInfoWithMarkdown = function () { return __awaiter(void 0, void 0, voi
                     auditJson = JSON.parse(auditJsonString || 'null');
                 }
                 catch (error) {
-                    message = "**Sooooooory**\nI can't read audit information. Please check audit in your machine.";
+                    message = "**Sooooooorry**\nI can't read audit information. Please check audit in your machine.";
                     core.setOutput('meta_info_with_markdown', message);
                     return [2 /*return*/];
                 }
