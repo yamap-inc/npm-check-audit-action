@@ -147,13 +147,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core = __importStar(__webpack_require__(470));
 var audit_1 = __webpack_require__(589);
 var format_1 = __webpack_require__(78);
-var run = function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        setAuditDefault();
-        setMetaInfoWithMarkdown();
-        return [2 /*return*/];
-    });
-}); };
+var run = function () {
+    setAuditDefault();
+    setMetaInfoWithMarkdown();
+};
 var setAuditDefault = function () { return __awaiter(void 0, void 0, void 0, function () {
     var audit, error_1;
     return __generator(this, function (_a) {
@@ -182,7 +179,6 @@ var setMetaInfoWithMarkdown = function () { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, audit_1.getAudit({ json: true })];
             case 1:
                 auditJsonString = _a.sent();
-                core.setOutput('json_string', auditJsonString);
                 auditJson = void 0;
                 try {
                     auditJson = JSON.parse(auditJsonString || 'null');
