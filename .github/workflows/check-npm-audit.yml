@@ -13,4 +13,4 @@ jobs:
     - name: echo audit
       run: |
         echo "${{ steps.audit.outputs.audit_default }}"
-        echo "${{ steps.audit.outputs.meta_info_with_markdown }}"
+        echo ${{ steps.audit.outputs.meta_info_with_markdown }}

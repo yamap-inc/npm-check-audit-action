@@ -148,27 +148,57 @@ var core = __importStar(__webpack_require__(470));
 var audit_1 = __webpack_require__(589);
 var format_1 = __webpack_require__(78);
 var run = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var audit, auditJsonString, auditJson, metaInfoWithMarkdown, error_1;
+    return __generator(this, function (_a) {
+        setAuditDefault();
+        setMetaInfoWithMarkdown();
+        return [2 /*return*/];
+    });
+}); };
+var setAuditDefault = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var audit, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, audit_1.getAudit()];
             case 1:
                 audit = _a.sent();
-                return [4 /*yield*/, audit_1.getAudit({ json: true })];
-            case 2:
-                auditJsonString = _a.sent();
-                auditJson = JSON.parse(auditJsonString || 'null');
-                metaInfoWithMarkdown = format_1.formatMetaInfoWithMarkdown(auditJson);
                 core.setOutput('audit_default', audit);
-                core.setOutput('meta_info_with_markdown', metaInfoWithMarkdown);
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 3];
+            case 2:
                 error_1 = _a.sent();
                 core.setFailed(error_1.message);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+var setMetaInfoWithMarkdown = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var auditJsonString, auditJson, message, metaInfoWithMarkdown, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, audit_1.getAudit({ json: true })];
+            case 1:
+                auditJsonString = _a.sent();
+                auditJson = void 0;
+                try {
+                    auditJson = JSON.parse(auditJsonString || 'null');
+                }
+                catch (error) {
+                    message = "**Sooooooory**\nI can't read audit information. Please run `npm audit` in your machine.";
+                    core.setOutput('meta_info_with_markdown', message);
+                    return [2 /*return*/];
+                }
+                metaInfoWithMarkdown = format_1.formatMetaInfoWithMarkdown(auditJson);
+                core.setOutput('meta_info_with_markdown', metaInfoWithMarkdown);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                core.setFailed(error_2.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
