@@ -49,6 +49,26 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ 78:
+/***/ (function(__unusedmodule, exports) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.formatMetaInfoWithMarkdown = void 0;
+exports.formatMetaInfoWithMarkdown = function (json) {
+    var vulnerabilities = json.metadata.vulnerabilities;
+    var info = vulnerabilities.info;
+    var low = vulnerabilities.low;
+    var moderate = vulnerabilities.moderate;
+    var high = vulnerabilities.high;
+    var critical = vulnerabilities.critical;
+    return "\n| vulnerabilities |  |\n|:--|:--|\n| info | " + info + " |\n| low | " + low + " |\n| moderate | " + moderate + " |\n| high | " + high + " |\n| critical | " + critical + " |\n";
+};
+
+
+/***/ }),
+
 /***/ 87:
 /***/ (function(module) {
 
@@ -90,9 +110,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core = __importStar(__webpack_require__(470));
 var audit_1 = __webpack_require__(589);
+var format_1 = __webpack_require__(78);
 try {
     var audit = audit_1.getAudit();
-    core.setOutput('audit_default', audit);
+    var auditJsonString = audit_1.getAudit({ json: true });
+    var auditJson = JSON.parse(auditJsonString);
+    var metaInfoWithMarkdown = format_1.formatMetaInfoWithMarkdown(auditJson);
+    console.log(metaInfoWithMarkdown);
+    // core.setOutput('audit_default', audit);
+    // core.setOutput('meta_info_markdown', metaInfoWithMarkdown);
 }
 catch (error) {
     core.setFailed(error.message);

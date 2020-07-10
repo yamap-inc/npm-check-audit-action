@@ -3,6 +3,8 @@ description: audit information
 outputs:
   audit_default: # id of output
     description: audit default table
+  meta_info_with_markdown: # id of output
+    description: audit meta information with markdown
 runs:
   using: node12
   main: dist/index.js
