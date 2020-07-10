@@ -6,7 +6,7 @@ try {
   const audit = getAudit();
 
   const auditJsonString = getAudit({ json: true });
-  const auditJson = JSON.parse(auditJsonString);
+  const auditJson = JSON.parse(auditJsonString || 'null');
 
   const metaInfoWithMarkdown = formatMetaInfoWithMarkdown(auditJson);
 
