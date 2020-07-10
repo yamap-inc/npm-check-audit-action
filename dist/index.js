@@ -63,7 +63,7 @@ exports.formatMetaInfoWithMarkdown = function (json) {
     var moderate = vulnerabilities.moderate;
     var high = vulnerabilities.high;
     var critical = vulnerabilities.critical;
-    return "\n| vulnerabilities |  |\n|:--|:--|\n| info | " + info + " |\n| low | " + low + " |\n| moderate | " + moderate + " |\n| high | " + high + " |\n| critical | " + critical + " |\n";
+    return "\n| vulnerabilities | count |\n|:--|:--|\n| info | " + info + " |\n| low | " + low + " |\n| moderate | " + moderate + " |\n| high | " + high + " |\n| critical | " + critical + " |\n";
 };
 
 
@@ -116,9 +116,8 @@ try {
     var auditJsonString = audit_1.getAudit({ json: true });
     var auditJson = JSON.parse(auditJsonString);
     var metaInfoWithMarkdown = format_1.formatMetaInfoWithMarkdown(auditJson);
-    console.log(metaInfoWithMarkdown);
-    // core.setOutput('audit_default', audit);
-    // core.setOutput('meta_info_markdown', metaInfoWithMarkdown);
+    core.setOutput('audit_default', audit);
+    core.setOutput('meta_info_with_markdown', metaInfoWithMarkdown);
 }
 catch (error) {
     core.setFailed(error.message);
